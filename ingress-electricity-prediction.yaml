@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: electricity-prediction-ingress
+spec:
+  rules:
+    - host: electricity.prediction.vbo.local
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: electricity-prediction
+                port:
+                  number: 8001

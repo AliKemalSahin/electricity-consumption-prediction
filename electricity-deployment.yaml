@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: electricity-prediction-deployment
+  labels:
+    app: electricity-prediction
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: electricity-prediction
+  template:
+    metadata:
+      labels:
+        app: electricity-prediction
+    spec:
+      containers:
+      - name: electricity-prediction
+        image: electricity-prediction-with-fastapi:3.0
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 8001
