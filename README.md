@@ -1,8 +1,8 @@
-Elektrik Tüketimi Tahmini
+# Elektrik Tüketimi Tahmini
 
 Bu depo, elektrik tüketimini tahmin etmek için makine öğrenimi modellerini kullanan bir projeyi içerir. Veri işleme, tahmin, model eğitimi ve uygulama dağıtımı için betikler sunar.
 
-Özellikler
+## Özellikler
 
 Model Eğitimi: Elektrik tüketimi verileri üzerinde tahmin modellerini eğitin.
 
@@ -14,24 +14,23 @@ Kubernetes Dağıtımı: Uygulamayı Kubernetes'e dağıtmak için YAML konfigü
 
 Docker Desteği: Uygulamayı kolayca konteynerleştirin ve dağıtın.
 
-Proje Yapısı
+## Proje Yapısı
 
-├── dataset.csv                     # Elektrik tüketimi veri seti
-├── Dockerfile                      # Docker konfigürasyon dosyası
-├── electricity-deployment.yaml     # Kubernetes deployment konfigürasyonu
-├── ingress-electricity-prediction.yaml # Kubernetes ingress konfigürasyonu
-├── main.py                         # Ana uygulama betiği
-├── train.py                        # Model eğitim betiği
-├── request24h.py                   # 24 saatlik tahmin betiği
-├── request5d.py                    # 5 günlük tahmin betiği
-├── requestDrift.py                 # Sapma algılama betiği
-├── requirements.txt                # Python bağımlılıkları
-├── saved_models/                   # Kaydedilen modellerin bulunduğu klasör
-└── .git                            # Git versiyon kontrolü
+#### ├── dataset.csv                     # Elektrik tüketimi veri seti
+#### ├── Dockerfile                      # Docker konfigürasyon dosyası
+#### ├── electricity-deployment.yaml     # Kubernetes deployment konfigürasyonu
+#### ├── ingress-electricity-prediction.yaml # Kubernetes ingress konfigürasyonu
+#### ├── main.py                         # Ana uygulama betiği
+#### ├── train.py                        # Model eğitim betiği
+#### ├── request24h.py                   # 24 saatlik tahmin betiği
+#### ├── request5d.py                    # 5 günlük tahmin betiği
+#### ├── requestDrift.py                 # Sapma algılama betiği
+#### ├── requirements.txt                # Python bağımlılıkları
+#### ├── saved_models/                   # Kaydedilen modellerin bulunduğu klasör
 
-Başlangıç
+# Başlangıç
 
-Gereksinimler
+## Gereksinimler
 
 Python 3.8+
 
@@ -39,65 +38,65 @@ Docker
 
 Kubernetes cluster (Kubernetes üzerinde dağıtım yapılacaksa)
 
-Kurulum
+# Kurulum
 
-Depoyu klonlayın:
+#### Depoyu klonlayın:
 
 git clone https://github.com/your-username/electricity-consumption-prediction.git
 cd electricity-consumption-prediction
 
-Gerekli Python kütüphanelerini yükleyin:
+#### Gerekli Python kütüphanelerini yükleyin:
 
 pip install -r requirements.txt
 
-Model Eğitimi
+### Model Eğitimi
 
-Sağlanan veri seti ile modeli eğitin:
+#### Sağlanan veri seti ile modeli eğitin:
 
 python train.py
 
-Eğitilen model saved_models/ klasörüne kaydedilecektir.
+#### Eğitilen model saved_models/ klasörüne kaydedilecektir.
 
-Uygulamayı Çalıştırma
+### Uygulamayı Çalıştırma
 
-Uygulamayı yerel olarak başlatın:
+#### Uygulamayı yerel olarak başlatın:
 
 python main.py
 
-Tahmin Yapma
+### Tahmin Yapma
 
-24 saatlik tahminler için:
+#### 24 saatlik tahminler için:
 
 python request24h.py
 
-5 günlük tahminler için:
+#### 5 günlük tahminler için:
 
 python request5d.py
 
-Sapma algılama için:
+#### Sapma algılama için:
 
 python requestDrift.py
 
-Docker Kullanımı
+### Docker Kullanımı
 
-Docker imajını oluşturun:
+#### Docker imajını oluşturun:
 
 docker build -t electricity-prediction:latest .
 
-Konteyneri çalıştırın:
+#### Konteyneri çalıştırın:
 
 docker run -p 8000:8000 electricity-prediction:latest
 
-Kubernetes Dağıtımı
+### Kubernetes Dağıtımı
 
-Dağıtım konfigürasyonunu uygulayın:
+#### Dağıtım konfigürasyonunu uygulayın:
 
 kubectl apply -f electricity-deployment.yaml
 
-Ingress konfigürasyonunu uygulayın:
+#### Ingress konfigürasyonunu uygulayın:
 
 kubectl apply -f ingress-electricity-prediction.yaml
 
-Veri Seti
+#### Veri Seti
 
 dataset.csv dosyası saatlik elektrik tüketimi verilerini içerir. Model eğitiminden önce veri setinin doğru formatta olduğundan emin olun.
